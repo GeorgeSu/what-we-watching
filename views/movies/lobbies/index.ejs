@@ -1,0 +1,32 @@
+<% include ../partials/header %>
+
+<div class="container">
+    <table class="table table-hover table-dark lobbyIndex">
+        <thead>
+            <tr>
+                <th scope="col">Lobby Name</th>
+                <th scope="col">Lobby Type</th>
+                <th scope="col">Capacity</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <% lobbies.forEach(function(lobby) { %>
+            <tr>
+                <td class="lobbyName"><a href=<%="/movies/lobbies/" + lobby._id%>><%= lobby.name %></a></td>
+                <td class="lobbyType">
+                <%if (lobby.isPublic) {%>
+                    <%= "Public"; %>
+                <% } else { %>
+                    <%= "Private"; %>
+                <% } %>
+                </td>
+                <td class="lobbyCapacity"><%= lobby.capacity %></td>
+                <td class="lobbyJoin"><a href=<%="/movies/lobbies/" + lobby._id%> class="btn btn-outline-success">Enter Lobby</a></td>
+            </tr>
+            <% }) %>
+        </tbody>
+    </table>
+</div>
+
+<% include ../partials/footer %>

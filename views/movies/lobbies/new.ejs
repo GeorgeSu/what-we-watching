@@ -1,0 +1,38 @@
+<% include ../partials/header %>
+
+<div class="container lobbyForm">
+    <form action="/movies/lobbies" method="POST">
+        <div class="form-group">
+            <h6>Lobby Type: </h6>
+            <div class="radio">
+                <label><input id="publicLobby" type="radio" name="isPublic" value=true> Public</label>
+            </div>
+            <div class="radio">
+                <label><input id="privateLobby" type="radio" name="isPublic" value=false checked> Private</label>
+            </div>
+        </div>
+        <div class="form-group">
+            <h6>Lobby Capacity:</h6> 
+            <select class="form-control" name="lobbyCapacity">
+                <% for (var i=2; i<= 100; i++) { %>
+                    <option value=<%=i%>><%=i%></option>
+                <% } %>
+            </select>
+        </div>
+        
+        <div class="form-group">
+            <h6>Lobby Name: </h6>
+            <input class="form-control" type="text" name="lobbyName" placeholder="Lobby Name" required>
+        </div>
+        <div class="form-group">
+            <h6>Lobby Password: </h6>
+            <input class="form-control" id="lobbyPassword" type="text" name="lobbyPassword" placeholder="Lobby Password (if private)" required>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="lobbySubmit btn btn-dark btn-lg btn-block">Create Lobby</button>
+        </div>
+    </form>
+</div>
+
+<script src="/scripts/new.js"></script>
+<% include ../partials/footer %>

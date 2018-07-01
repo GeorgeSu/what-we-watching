@@ -1,0 +1,158 @@
+/*General Styles*/
+body {
+    background-color: black;
+    font-family: 'Oxygen', sans-serif;
+    color: white;
+    text-align: center;
+    margin: 0 auto;
+}
+
+h1 {
+    font-size: 3.0rem;
+    font-weight: 700;
+}
+
+h6 {
+    font-weight: 700;
+}
+
+.filmStrip {
+    width: 100%;
+    height: 50px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: white;
+    background-image: url("/images/film-strip.png");
+    text-align: center;
+    padding: 50px 0px;
+    margin: 0 auto;
+    line-height: 0;
+}
+
+.nav-link {
+    font-weight: 700;
+    color: white !important;
+    height: 100%;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.nav-link:hover {
+    background-color: rgba(248, 249, 250, .1);
+}
+
+.active {
+    background-color: rgba(248, 249, 250, .1);
+}
+
+.logo {
+    width: 56px;
+    height: 40px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url("/images/clapperboard-logo.png");
+}
+
+#navBar {
+    background-color: rgba(248, 249, 250, .2);
+    margin-bottom: 15px;
+}
+
+#headerStyle {
+    background-color: rgba(255, 20, 0, .5);
+    border: 5px dotted rgba(246, 255, 0, 1);
+    color: white;
+    box-shadow: 0px 0px 1000px 80px rgba(255, 0, 0, .3),
+                0px 0px 10px 10px rgba(246, 255, 0, .3);
+    height: 150px;
+    padding-top: 20px;
+}
+
+
+/*Lobby-Related Form Styles*/
+.lobbyForm {
+    width: 30%;
+    margin: 0 auto;
+}
+
+.lobbySubmit {
+    /*width: 100%;*/
+    margin: 0 auto;
+}
+
+.createLobby {
+    margin-top: 50px;
+    margin-bottom: 75px;
+}
+
+/*Lobby Index Styles*/
+.lobbyName {
+    width: 60%;
+}
+
+.lobbyName a {
+    color: rgba(111, 153, 171, 1);
+    font-weight: bold;
+    text-decoration: inherit;
+}
+
+.lobbyName a:hover {
+    color: rgba(111, 153, 171, .6);
+}
+
+.lobbyType {
+    width: 15%;
+}
+
+.lobbyCapacity {
+    width: 10%;
+}
+
+.table .lobbyJoin {
+    padding-top: .35rem;
+    width: 15%;
+}
+
+.lobbyIndex {
+    margin-top: 75px;
+}
+
+/*Lobby Show Page Styles*/
+.vote-buttons {
+    width: 190px;
+    margin-right: 20px;
+}
+
+#lobbyHeading {
+    margin-bottom: 30px;
+    text-decoration: underline;
+}
+
+#newElection {
+    margin-top: 150px;
+    margin-bottom: 400px;
+    background-color: rgba(9, 135, 24, 1);
+}
+
+#lobbyCommands {
+    margin-top: 30px;
+}
+
+.h3Heading {
+    text-decoration: underline;
+    margin-bottom: 20px;
+}
+
+#maxNoms {
+    width: 100px;
+    margin: 0 auto;
+}
+
+/*Table Styles*/
+th {
+    font-size: 1.5em;
+}
+
+.table-light {
+    color: black;
+}
