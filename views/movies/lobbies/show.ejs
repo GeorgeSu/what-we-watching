@@ -38,6 +38,17 @@
         </div>
     </div>
     
+    <!--Text Input Form for Nominating Things-->
+    <form id="nominationForm">
+        <div class="form-group">
+            <h6>Nomination: </h6>
+            <input class="form-control" type="text" name="newNomination" placeholder="Enter Nomination Here">
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-secondary">Add Nomination</button>
+        </div>
+    </form>
+    
     <!--Maximum Nominations Selector-->
     <div class="form-group">
         <label for="maxNoms">Maximum Nominations Per Member:</label>
@@ -65,6 +76,8 @@
         <button id="startVotes" class="vote-buttons btn btn-success btn-lg">Start Voting</button>
         <button id="stopVotes" class="vote-buttons btn btn-danger btn-lg">Stop Voting</button>
     </div>
+    
+    <button id="countVotes" class="vote-buttons btn btn-info btn-lg">Count Votes</button>
     
     <button id="newElection" type="button" class="btn btn-outline-light btn-lg btn-block">New Election</button>
     

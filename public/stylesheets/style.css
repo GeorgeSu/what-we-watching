@@ -148,6 +148,15 @@ h6 {
     margin: 0 auto;
 }
 
+#nominationForm {
+    width: 300px;
+    margin: 30px auto 0px auto;
+}
+
+#countVotes {
+    margin-top: 20px;
+}
+
 /*Table Styles*/
 th {
     font-size: 1.5em;

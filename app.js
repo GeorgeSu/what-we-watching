@@ -6,22 +6,14 @@ var express =	require("express"), // import Express package
 
 mongoose.connect("mongodb://localhost/lobbies"); // connect mongoose to movie_night database
 
-// LOBBY SCHEMA - name, password, capacity, isPublic
-var lobbySchema = new mongoose.Schema({
-    name: String,
-    password: String,
-    capacity: Number,
-    isPublic: Boolean
-});
+// Create Movies Lobby DB Collection
+var MovieLobby = require("./models/lobby.js").movieLobbies;
 
-// Movies Lobby DB Collection
-var MovieLobby = mongoose.model("MovieLobby", lobbySchema);
+// Create Anime Lobby DB Collection
+var AnimeLobby = require("./models/lobby.js").animeLobbies;
 
-// Anime Lobby DB Collection
-// var Anime = mongoose.model("AnimeLobby", lobbySchema);
-
-// TV Shows Lobby DB Collection
-// var TV = mongoose.model("TVLobby", lobbySchema);
+// Create TV Shows Lobby DB Collection
+var TVLobby = require("./models/lobby.js").tvLobbies;
 
 // Dummy Seed for Testing
 // MovieLobby.create({name: "Cal Dota", password: "dota4life", capacity: 20, isPublic: false}, function(err, movieLobby) {
