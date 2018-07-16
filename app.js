@@ -2,31 +2,32 @@ var express =	require("express"), // import Express package
     app =		express(), // store Express package in app Object
     bodyParser =	require("body-parser"), // BodyParser package for receiving user post form info
     request =		require("request"), // Request package for making HTTP requests for API calls
-    mongoose =	require("mongoose"); // Mongoose package for interacting with MongoDB
+    mongoose =	require("mongoose"), // Mongoose package for interacting with MongoDB
+    Lobby = require("./models/lobby.js"), // Dictionary of Schema for all Lobby Types
+    User = require("./models/user.js"),
+    Election = require("./models/election.js"),
+    Nomination = require("./models/nomination.js");
 
 mongoose.connect("mongodb://localhost/lobbies"); // connect mongoose to movie_night database
 
 // Create Movies Lobby DB Collection
-var MovieLobby = require("./models/lobby.js").movieLobbies;
+var MovieLobby = Lobby.movieLobbies;
 
 // Create Anime Lobby DB Collection
-var AnimeLobby = require("./models/lobby.js").animeLobbies;
+// var AnimeLobby = Lobby.animeLobbies;
 
 // Create TV Shows Lobby DB Collection
-var TVLobby = require("./models/lobby.js").tvLobbies;
+// var TVLobby = Lobby.tvLobbies;
 
-// Dummy Seed for Testing
-// MovieLobby.create({name: "Cal Dota", password: "dota4life", capacity: 20, isPublic: false}, function(err, movieLobby) {
-//     if (err) {
-//         console.log("Error creating movie lobby");
-//     } else {
-//         console.log(movieLobby);
-//     }
-// });
+// Create Food Lobby DB Collection
+// var FoodLobby = Lobby.foodLobbies;
+
+// Create General Elections Lobby DB Collection
+// var GeneralLobby = Lobby.generalLobbies;
 
 app.use(bodyParser.urlencoded({extended: true})); // Boilerplate for using BodyParser
 
-app.use(express.static("public")); // tells view files to use “public” folder as root node for linking to other files (such as stylesheets)
+app.use(express.static(__dirname + "/public")); // tells view files to use “public” folder as root node for linking to other files (such as stylesheets)
 app.set("view engine", "ejs"); // sets .ejs extension as default view type, so you don’t have to type .ejs for all render file paths
 
 // Movies Homepage
