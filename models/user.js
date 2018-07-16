@@ -4,7 +4,6 @@ var mongoose = require("mongoose");
 var userSchema = new mongoose.Schema({
     name: String,
     password: String,
-    email: String,
     movieLobbies: [
         {
             type: mongoose.Schema.Types.ObjectId,
@@ -29,11 +28,11 @@ var userSchema = new mongoose.Schema({
             ref: "Nomination"
         }
         ],
-    ballot: [ // ordering of votes for nominations; possibly create ballot object instead?
-        Number // each number in the array of ballot represents index/id of nomination voted for
-            // Ex. If ballot is [2, 0, 1] and nominations are ["Lorax", "Ponyo", "The Dark Knight"]
-            // That means user's voting order is "The Dark Knight" > "Lorax" > "Ponyo"
-            // Default is [0, 1, 2 ...]
+    ballot: [ // list of ballot objects user has casted
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "Ballot"
+        }
         ]
 });
 

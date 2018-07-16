@@ -30,14 +30,20 @@ app.use(bodyParser.urlencoded({extended: true})); // Boilerplate for using BodyP
 app.use(express.static(__dirname + "/public")); // tells view files to use “public” folder as root node for linking to other files (such as stylesheets)
 app.set("view engine", "ejs"); // sets .ejs extension as default view type, so you don’t have to type .ejs for all render file paths
 
-// Movies Homepage
+// =========
+// ROUTES
+// =========
+
+// Landing Page; Currently redirects to Movies Homepage
 app.get("/", function(req, res) {
     res.redirect("/movies");
 });
+
+// Movies Routes
+// Movies Home Page
 app.get("/movies", function(req, res) {
     res.render("movies/landing");
 });
-
 // Index Route for Movie Lobbies
 app.get("/movies/lobbies", function(req, res) {
     MovieLobby.find({}, function(err, lobbies) {
@@ -49,12 +55,10 @@ app.get("/movies/lobbies", function(req, res) {
         }
     })
 });
-
 // New Route for Movie Lobbies
 app.get("/movies/lobbies/new", function(req, res) {
     res.render("movies/lobbies/new");
 });
-
 // Show Route for Movie Lobbies
 app.get("/movies/lobbies/:id", function(req, res) {
     MovieLobby.find({_id: req.params.id}, function(err, lobbyFound) {
@@ -69,20 +73,11 @@ app.get("/movies/lobbies/:id", function(req, res) {
         }
     })
 });
-
 // Post Route for Movie Lobbies
 app.post("/movies/lobbies", function(req, res) {
-    var lobbyName = req.body.lobbyName;
-    var lobbyPassword = req.body.lobbyPassword;
-    var lobbyCapacity = req.body.lobbyCapacity;
-    var isPublic = req.body.isPublic;
     // Store lobby's values in newLobby
-    var newLobby = new MovieLobby({
-        name: lobbyName,
-        password: lobbyPassword,
-        capacity: lobbyCapacity,
-        isPublic: isPublic
-        });
+    var lobbyName = req.body.lobby.name;
+    var newLobby = new MovieLobby(req.body.lobby);
     var showRoute;
     
     // If Lobby name is taken, show prompt; otherwise, save newLobby to DB

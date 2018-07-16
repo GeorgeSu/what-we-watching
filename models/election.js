@@ -10,5 +10,11 @@ var electionSchema = new mongoose.Schema({
     numEntries: {    // Number of entries nominated (Equal to nominations.length)
         type: Number,
         default: 0
-    }
+    },
+    ballots: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "Ballot"
+        }
+        ]
 });
